@@ -1,0 +1,10 @@
+@scope (.combobox-visually-hidden) {
+  :scope {
+    position: absolute;
+    inline-size: 0.0625rem;
+    block-size: 0.0625rem;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}

@@ -1,0 +1,77 @@
+import type { ComboboxOption } from "../src";
+
+const names = [
+  "Argentina",
+  "Australia",
+  "Austria",
+  "Belgium",
+  "Brazil",
+  "Canada",
+  "Chile",
+  "China",
+  "Colombia",
+  "Côte d’Ivoire",
+  "Croatia",
+  "Czechia",
+  "Denmark",
+  "Egypt",
+  "Estonia",
+  "Finland",
+  "France",
+  "Germany",
+  "Greece",
+  "Iceland",
+  "India",
+  "Indonesia",
+  "Ireland",
+  "Italy",
+  "Japan",
+  "Kenya",
+  "Latvia",
+  "Lithuania",
+  "México",
+  "Morocco",
+  "Netherlands",
+  "New Zealand",
+  "Nigeria",
+  "Norway",
+  "Peru",
+  "Poland",
+  "Portugal",
+  "Réunion",
+  "South Africa",
+  "South Korea",
+  "Spain",
+  "Sweden",
+  "Switzerland",
+  "Türkiye",
+  "Ukraine",
+  "United Kingdom",
+  "United States",
+  "Vietnam",
+];
+
+export const countries: ComboboxOption[] = names.map((name) => ({
+  value: name
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLowerCase()
+    .replace(/[^a-z]+/g, "-"),
+  label: name,
+}));
+
+export const fruits: ComboboxOption[] = [
+  { value: "apple", label: "Apple" },
+  { value: "apricot", label: "Apricot" },
+  { value: "banana", label: "Banana" },
+  { value: "blueberry", label: "Blueberry" },
+  { value: "cherry", label: "Cherry" },
+  { value: "durian", label: "Durian", disabled: true },
+  { value: "fig", label: "Fig" },
+  { value: "grape", label: "Grape" },
+  { value: "kiwi", label: "Kiwi" },
+  { value: "lemon", label: "Lemon" },
+  { value: "mango", label: "Mango" },
+  { value: "orange", label: "Orange" },
+  { value: "pear", label: "Pear" },
+];

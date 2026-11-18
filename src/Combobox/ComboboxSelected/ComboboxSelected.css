@@ -1,0 +1,61 @@
+@scope (.combobox-selected) {
+  :scope {
+    display: grid;
+    gap: var(--_space-2xs);
+  }
+
+  .combobox-selected-summary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0 var(--_space);
+  }
+
+  .combobox-selected-summary button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--_space-2xs);
+    min-block-size: var(--_control-size);
+    margin-inline: calc(var(--_space-2xs) * -1);
+    padding-block: 0;
+    padding-inline: var(--_space-2xs);
+    border: 0;
+    border-radius: var(--_radius);
+    background: none;
+    text-decoration-thickness: var(--_border-width);
+    text-underline-offset: var(--_focus-width);
+    cursor: pointer;
+
+    &:focus-visible {
+      outline-offset: 0;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  .combobox-selected-toggle {
+    color: inherit;
+    font-weight: 700;
+
+    &:hover {
+      background: color-mix(in oklch, var(--_text) 8%, transparent);
+    }
+
+    & svg:dir(rtl) {
+      scale: -1 1;
+    }
+  }
+
+  .combobox-selected-clear {
+    color: var(--_muted);
+    text-decoration-line: underline;
+
+    &:hover:not(:disabled) {
+      color: inherit;
+      text-decoration-thickness: var(--_focus-width);
+    }
+  }
+}

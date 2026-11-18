@@ -1,0 +1,12 @@
+@scope (.combobox-icon) {
+  :scope {
+    flex-shrink: 0;
+    inline-size: var(--_icon-size, 1.25rem);
+    block-size: var(--_icon-size, 1.25rem);
+    fill: none;
+    stroke: currentcolor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+}

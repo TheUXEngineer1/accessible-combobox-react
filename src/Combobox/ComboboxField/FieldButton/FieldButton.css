@@ -1,0 +1,28 @@
+@scope (.combobox-field-button) {
+  :scope {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    min-inline-size: var(--_control-size);
+    min-block-size: var(--_control-size);
+    padding: 0;
+    border: 0;
+    border-radius: var(--_radius);
+    background: none;
+    color: var(--_muted);
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+      color: var(--_text);
+    }
+
+    &:focus-visible {
+      outline-offset: calc(var(--_focus-width) * -1);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+}

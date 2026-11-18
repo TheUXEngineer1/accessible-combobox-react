@@ -1,0 +1,55 @@
+@scope (.combobox-popup) {
+  :scope {
+    max-block-size: var(--_popup-max-block-size);
+    margin: 0;
+    padding: var(--_space-2xs);
+    overflow-block: auto;
+    overscroll-behavior: contain;
+    border: var(--_border-width) solid var(--_rule);
+    border-radius: var(--_radius);
+    background: var(--_background);
+    color: var(--_text);
+  }
+
+  :scope[data-popup] {
+    position: fixed;
+    position-anchor: var(--_anchor);
+    position-area: block-end span-inline-end;
+    position-try-fallbacks: flip-block;
+    inset: auto;
+    inline-size: anchor-size(inline);
+    margin-block: var(--_space-2xs);
+    box-shadow: var(--_shadow);
+
+    @supports not (anchor-name: --combobox) {
+      inset-block-start: var(--_popup-block-start, 0);
+      inset-inline-start: var(--_popup-inline-start, 0);
+      inline-size: var(--_popup-inline-size, auto);
+      margin-block: 0;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: opacity 0.12s;
+
+      @starting-style {
+        opacity: 0;
+      }
+    }
+  }
+
+  /* Without the Popover API the popup cannot use the top layer. */
+  :scope[data-popup]:not([popover]) {
+    z-index: 1000;
+  }
+
+  ul:not([hidden]) {
+    display: grid;
+    gap: var(--_border-width);
+  }
+
+  .combobox-empty {
+    padding-block: var(--_space-xs);
+    padding-inline: var(--_space);
+    color: var(--_muted);
+  }
+}

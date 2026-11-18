@@ -1,0 +1,69 @@
+@scope (.combobox-field) {
+  :scope {
+    display: flex;
+    align-items: center;
+    min-block-size: var(--_control-size);
+    border: var(--_border-width) solid var(--_border);
+    border-radius: var(--_radius);
+    background: var(--_background);
+    color: var(--_text);
+    anchor-name: var(--_anchor);
+
+    &:hover:not([data-disabled]) {
+      border-color: var(--_text);
+    }
+
+    &:has(input:focus-visible) {
+      outline: var(--_focus-width) solid var(--_accent);
+      outline-offset: var(--_focus-width);
+    }
+
+    &[data-disabled] {
+      border-style: dashed;
+      color: var(--_muted);
+    }
+  }
+
+  /* Without a zero inline size, the input's intrinsic width sets a minimum width for the whole field. */
+  input {
+    flex: 1;
+    inline-size: 0;
+    min-inline-size: 0;
+    padding-block: var(--_space-xs);
+    padding-inline: var(--_space);
+    border: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    color: inherit;
+    appearance: none;
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: var(--_muted);
+      opacity: 1;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  /* The toggle should feel like part of the input. */
+  button[aria-expanded] {
+    cursor: text;
+
+    &[aria-expanded="true"] svg {
+      rotate: 0.5turn;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      & svg {
+        transition: rotate 0.15s;
+      }
+    }
+  }
+}

@@ -1,0 +1,132 @@
+@layer reset, tokens, base, layout, components;
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body,
+  h1,
+  h2,
+  p,
+  ul,
+  dl,
+  dd,
+  pre {
+    margin: 0;
+  }
+
+  ul {
+    padding: 0;
+  }
+}
+
+@layer base {
+  /* Optional: theme the combobox with the page's own tokens. */
+  :root {
+    --combobox-color-text: var(--color-text);
+    --combobox-color-muted: var(--color-muted);
+    --combobox-color-rule: var(--color-rule);
+    --combobox-color-background: var(--color-bg);
+    --combobox-color-accent: var(--color-accent);
+    --combobox-radius: var(--radius);
+    --combobox-focus-width: var(--focus-width);
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading);
+  }
+
+  h1,
+  h2 {
+    line-height: var(--leading-tight);
+    text-wrap: balance;
+  }
+
+  h1 {
+    font-size: var(--text-h1);
+    letter-spacing: var(--tracking-tight);
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+  }
+
+  p {
+    max-inline-size: var(--measure);
+    text-wrap: pretty;
+  }
+
+  code,
+  output {
+    font-family: var(--font-mono);
+  }
+
+  :focus-visible {
+    outline: var(--focus-width) solid var(--color-accent);
+    outline-offset: var(--focus-width);
+  }
+}
+
+@layer layout {
+  body {
+    max-inline-size: var(--page);
+    margin-inline: auto;
+    padding-block: var(--space-l);
+    padding-inline: var(--gutter);
+  }
+
+  .demo-page {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  header {
+    display: grid;
+    gap: var(--space-s);
+  }
+
+  main {
+    display: grid;
+    gap: var(--space-xl);
+  }
+
+  main > section {
+    display: grid;
+    gap: var(--space-m);
+    align-content: start;
+  }
+
+  .demo-form {
+    display: grid;
+    gap: var(--space-m);
+  }
+
+  .demo-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .demo-button {
+    min-block-size: 2.75rem;
+    padding-inline: var(--space-s);
+    border: var(--rule-width) solid var(--color-muted);
+    border-radius: var(--radius);
+    background: var(--color-bg);
+    color: var(--color-text);
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .demo-output {
+    color: var(--color-muted);
+    overflow-wrap: anywhere;
+  }
+}
